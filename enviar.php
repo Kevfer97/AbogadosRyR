@@ -30,7 +30,7 @@ mail($destino, $asunto, $contenido);
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script src="js/menu.js" type="text/javascript" charset="utf-8" async defer></script>
-    <script src="datos.txt"></script>
+    <script src="datos.js"></script>
 
 </head>
 <body>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Rivas Rodríguez Contadores y Abogados</title>
+	<!-- IMPORTACIONES DE NELSON -->
+	  <link rel="icon" type="image/png" href="img/icono.png" />
+  	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/estilo.css">
+	  <script src="datos.txt"></script>
+ 
+
+
+     <!-- importacion de Jquery -->
+	<script type="text/javascript" src="js/lib/jquery-3.3.1.min.js"></script>
+	<!-- importacion de TimelineMax para las animaciones -->
+	<script src="js/lib/TweenMax.min.js"></script>
+	<!-- importacion de Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- importacion del font-awesome -->
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+	<!-- importacion de la hoja de estilo propia -->
+	<link rel="stylesheet" href="css/style.css">
+
+
+</head>
+<body>
+<div class="modal-sombra"></div>
+
+		<br><br><br><br>
+		<div class="caja caja-default caja-xm" >
+		<div class="caja-header">
+			<a  class="caja-titulo">Noticias<small id="sNotP"> (Pagina 1)</small></a>
+		</div>
+		<div id="Contenedor-Noticias" class="caja-body">
+			
+		</div>
+		<div class="caja-footer ">
+			<a id="btnPrev" class="aling-left" ><i class="fa fa-arrow-circle-left fa-2x Item-pointer Item-default"></i></a>
+			<i  id="txt_actual"  data-pagina="1" class="caja-titulo aling-center Item-azul event-none">1</i>
+			<a id="btnNext" class="aling-right" ><i class="fa fa-arrow-circle-right fa-2x Item-pointer Item-default"></i></a>
+		</div>
+	</div>
+
+		<div class="caja caja-rojo caja-x" >
+		<div class="caja-header">
+			<a class="caja-titulo">Noticias Destacadas</a>
+		</div>
+		<div  class="caja-body" id="NotDestaca" >
+	       
+		</div>
+	
+	</div>
+
+
+
+
+
+
+
+<!-- Inicio Modal Noticia -->
+
+<div class="Modal-Gen" id="modal1">
+	
+	<div class="Modal-Gen-header">
+		<div class="btn Modal-Gen-Salir btnCerarModal" >x</div>	
+		<a id="N-Title" class="Modal-Gen-Titulo">Noticia</a>
+	</div>	
+	<hr class="dividir-modal">
+	<div id="N-Content" class="Modal-Gen-body">	
+		
+		
+	</div>	
+	<hr class="dividir-modal">
+	<div class="Modal-Gen-footer">	
+		<a id="N-Desc" target="_blank" href="#"><i class="fa fa-download"></i>&nbsp;Descargar Archivo</a>&nbsp;
+		<a id="N-Link" target="_blank" href="#"><i class="fa fa-book"></i>&nbsp;Informacion</a>&nbsp;
+		<a class="btn btn-secondary btnCerarModal">Cerrar</a>
+			
+
+	</div>	
+	
+</div>
+
+<!-- Fin Modal Noticia -->
+
+
+<script src="js/motrarNoticias_b.js"></script>
+<script src="js/popper.min.js" type="text/javascript" charset="utf-8" async defer></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/scroll.js" type="text/javascript" charset="utf-8" async defer></script>
+<script src="js/menu2.js"></script>
+<script src="js/main.js"></script>
+<script src="js/mostrarNotDestacadas.js"></script>
+</body>
+<script>
+	(function () {
+		   postDestacada();
+		GetBloqueNoticia();
+		// var Nmax = 4;
+		var Nact = 1;
+		$("#btnPrev").hide();
+		$("#btnNext").on("click",function () {
+				$("#btnPrev").show();
+				$("#btnNext").show();
+			Nact = $("#txt_actual").data("pagina");
+			
+			Nact = Nact + 1;
+			// alert(Nact);
+			$("#txt_actual").data("pagina",Nact);
+			$("#txt_actual").text(Nact);
+			$("#sNotP").text(" (Pagina: "+Nact+")");
+			$('body,html').animate({scrollTop : 0}, 500);
+			 GetBloqueNoticia(Nact);
+			// if (Nact >= Nmax) {
+			// 	$("#btnNext").hide();
+			// }
+		});
+		$("#btnPrev").on("click",function () {
+			$("#btnNext").show();
+			$("#btnPrev").show();
+			Nact = $("#txt_actual").data("pagina");
+			
+			Nact = Nact - 1;
+			// alert(Nact);
+			$("#txt_actual").data("pagina",Nact);
+			$("#txt_actual").text(Nact);
+			$("#sNotP").text(" (Pagina: "+Nact+")");
+			$('body,html').animate({scrollTop : 0}, 500);
+			 GetBloqueNoticia(Nact);
+			if (Nact == 1) {
+				$("#btnPrev").hide();
+			};
+		});
+
+
+		$("body").on("click",".btnMostrarNoti", function(){
+			llenarModalNoticia($(this));
+		});
+
+		$("body").on("click",".btnMostrarDestaca", function(){
+			llenarModalNoticia($(this));
+		});
+		function llenarModalNoticia(Datos) {
+		    $("#N-Title").text(" ");
+			$("#N-Content").empty();
+			$("#N-Link").attr("href", Datos.data("link"));
+		
+			$("#N-Title").text(Datos.data("titulo"));
+			$("#N-Content").append(Datos.data("contenido"));
+			$("#N-Desc").attr("href", Datos.data("desc"));
+			MostrarModal("#modal1");
+
+		};
+
+
+	})();
+
+
+</script>
+</html>

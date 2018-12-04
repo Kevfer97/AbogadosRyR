@@ -105,21 +105,19 @@ background-color: #D8D8D8;
 .caja-header{
 	border-bottom:solid 1px #BDBDBD;
 	width: 100%;
-	padding: 5px;
-
+	padding: 1.5em;
 }
 .caja-body{
 	border-bottom:solid 1px #BDBDBD;
 	width: 100%;
-	padding: 5px;
+	padding: 1.5em;
 
 }
 .caja-footer{
 	color: white;
 	text-decoration: none;
 	width: 100%;
-	padding: 5px;
-	padding-bottom: 10px;
+	padding: 1em;
 	min-height: 47px;
 }
 .caja-titulo{
@@ -154,14 +152,14 @@ background-color: #D8D8D8;
 	margin-right: 0px;
 	}
 	.caja-x{
-		display: block;
-		width: 96%;
+	display: block;
+	width: 96%;
 	margin-left: 2%;
 	margin-right: 0px;
 	}
 	.caja-xm{
-		display: block;
-		width: 96%;
+	display: block;
+	width: 96%;
 	margin-left: 2%;
 	margin-right: 0px;
 	}
@@ -190,7 +188,7 @@ background-color: #D8D8D8;
   border-top:solid 5px #FFFF00;
 }
 .caja-default{
-  border-top:solid 5px #BDBDBD;
+  border-top:solid 5px #00abf0;
 }
 .aling-left{
 	float: left;

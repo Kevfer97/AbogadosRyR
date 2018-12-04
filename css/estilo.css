@@ -52,9 +52,9 @@ body
 }
 .numeros p
 {
-	margin:6px;
+	margin:1em;
 	color: black;
-	margin-left:30px;
+	font-size: 13.5px;
 }
 .numeros2 p
 {

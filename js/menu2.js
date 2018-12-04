@@ -6,7 +6,7 @@ function crear_menu() {
 
 
 
-                html+='<nav class="navbar  fixed-top  navbar-expand-lg navbar-toggler-sm" id="menu">';
+                html+='<nav class="navbar  fixed-top  navbar-expand-xl navbar-toggler-sm" id="menu">';
                 html+='<a class="navbar-brand" href="index.html">';
                 html+='<img class="logo" src="img/logo.png" alt="">';
                 html+='</a>';

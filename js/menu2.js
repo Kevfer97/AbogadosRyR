@@ -51,7 +51,7 @@ function crear_menu() {
                 html+='</ul> -->';
                 html+='</li>';
                 html+='<li class="dropdown-item dropdown-submenu">';
-                html+='<a class="dropdown-item" href="servicios.html#legal">Área Legal</a>';
+                html+='<a class="dropdown-item" href="servicios.html">Área Legal</a>';
                 html+='</li>';
                 html+='</ul>';
                 html+='</li>';

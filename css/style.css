@@ -12,7 +12,9 @@ background-color: #D8D8D8;
 }
 
 
-
+.max_w{
+	max-width: 600px;
+}
 .w50{
 	width: 50px;
 }

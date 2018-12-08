@@ -43,7 +43,7 @@ session_start();
 	$apellidos = $_POST['apellidosTxt'];
 	$correo = $_POST['correoTxt'];
 	$tipoDeUsuario = $_POST['tpUsuario'];
-
+	$txtQhacer = $_POST['txtQhacer']; 
 	
 	// The password_hash() function convert the password in a hash before send it to the database
 	$passHash = password_hash($pass, PASSWORD_DEFAULT);
@@ -52,8 +52,8 @@ session_start();
 	$query = "INSERT INTO USUARIOS (USUARIO,PASS, NOMBRES, APELLIDOS, CORREO, TIPO_USUARIO) VALUES ('$usuario','$passHash','$nombres','$apellidos', '$correo','$tipoDeUsuario')";
 
 	if (mysqli_query($conn, $query)) {
-		echo "<div class='alert alert-success' role='alert'><h3>Your account has been created.</h3>
-		<a class='btn btn-outline-primary' href='../index.php' role='button'>Login</a></div>";		
+		echo "<script> alert('Usuario Creado Corectamente'); </script>";
+		header("location:mantenimiento-frontend.php");		
 		} else {
 			echo "Error: " . $query . "<br>" . mysqli_error($conn);
 		}	

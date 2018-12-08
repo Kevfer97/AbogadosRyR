@@ -154,11 +154,12 @@ if($row[0]=='2'){
 		
 		<h3>MANTENIMIENTO</h3><hr />
 		
-		<form method="post" action="mantenimiento-backend.php" method="POST">
+		<form method="post" action="mantenimiento-backend.php" id="frmData" method="POST">
 			<table class="table table-bordered">
 				<tr>
 					<td><label for="codLb">Codigo</label></td>
 					<td><input type="text" class="form-control" name="codigo"  ></td>
+          <input name="txtQhacer" id="txtQhacer" type="text" class="form-control display-none" placeholder="*****" >
 				</tr>
 				<tr>
 					<td><label for="usuarioLb">Usuario</label></td>
@@ -191,7 +192,9 @@ if($row[0]=='2'){
 
 				</tr>
 			</table>	  
-		  <button type="submit" class="btn btn-success btn-block">Create </button>
+		  <button id="btnCrear" type="submit" class="btn btn-success btn-block">Crear </button>
+      <button id="btnEditar" type="submit" class="btn btn-warning btn-block">Editar </button>
+      <button id="btnEliminar" type="submit" class="btn btn-danger btn-block">Eliminar </button>
 		</form>		
 		</div>		
 		<div class="col-sm-12 col-md-6 col-lg-6">
@@ -255,5 +258,23 @@ if($row[0]=='2'){
 	</body>
 	<script>
 		$(".ponerUserName").text($("#AdmNameUser").text());
+    $("#txtQhacer").val(1);
+
+    $("#btnCrear").on("click", function(e) {
+       e.preventDefault();
+      $("#txtQhacer").val(1);
+      $('#frmData').submit();
+    });
+    $("#Editar").on("click", function(e) {
+       e.preventDefault();
+      $("#txtQhacer").val(2);
+      $('#frmData').submit();
+    });
+    $("#btnEliminar").on("click", function(e) {
+       e.preventDefault();
+      $("#txtQhacer").val(3);
+      $('#frmData').submit();
+    });
+
 	</script>
 </html>

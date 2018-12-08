@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +27,12 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="modal-sombra"></div>
+
+
+<a id="AdmEmailUser" class="display-none">
+	<?php session_start(); echo $_SESSION['correo']; ?>	</a>
+<a id="AdmNameUser" class="display-none"><?php echo $_SESSION['nombres']; ?></a>
+<!-- fin datos -->
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -54,7 +62,7 @@
               <!-- The user image in the navbar-->
               <img src="../../../img/userAdm.png " class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Kevin Juanito</span>
+              <span class="hidden-xs ponerUserName">Kevin Juanito</span>
             </a>
            
           </li>
@@ -75,7 +83,7 @@
           <img src="../../../img/userAdm.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Kevin Juanito</p>
+          <p class="ponerUserName">Kevin Juanito</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -86,9 +94,9 @@
         <li class="header">RyR Abogados</li>
         <!-- Optionally, you can add icons to the links -->
          <li class="active"><a href="#"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Inicio</a></li>
-        <li><a href="#"><i class="fa fa-cog fa-fw"></i>&nbsp; Cuenta</a></li>
+        <li><a href="../Usuario.php"><i class="fa fa-cog fa-fw"></i>&nbsp; Cuenta</a></li>
         <li><a href="../mantenimiento-frontend.php"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Usuarios</a></li>
-        <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Salir</a></li>
+        <li><a href="../cerrarSesion.php"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Salir</a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -304,6 +312,7 @@
 <script src="../../../js/datepickerES.js"></script>
 <script>
 	
+	$(".ponerUserName").text($("#AdmNameUser").text());
 
 	 $('.calendar').datepicker({dateFormat: 'yy/mm/dd'});
 		var user = $("#user").text();

@@ -1,16 +1,22 @@
 <?php 
 session_start();
-$usuario=$_SESSION['usuario'];
-error_reporting(0);
-include 'conexion.php';
-$conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-$tipoUsuario = mysqli_query($conn,"SELECT TIPO_USUARIOS FROM USUARIOS WHERE CORREO = '$usuario'");
-$row = mysqli_fetch_array($tipoUsuario);
-echo "tipo: ".$row[0];
-if($row[0]=='2'){
-	echo "usted no tiene permisos";
-	die();
-}
+
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+    {  
+    } else {
+        header("location:../../index.html");
+        exit;
+    }
+
+// include 'conexion.php';
+// $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+// $tipoUsuario = mysqli_query($conn,"SELECT TIPO_USUARIOS FROM USUARIOS WHERE CORREO = '$varsesion'");
+// $row = mysqli_fetch_array($tipoUsuario);
+// echo "tipo: ".$row[0];
+//  if($row[0]=='2'){
+// 	echo "usted no tiene permisos";
+// 	die();
+// }
  ?>
 <!doctype html>
 
@@ -24,7 +30,6 @@ if($row[0]=='2'){
 
     <!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-		<link rel="stylesheet" href="../css/custom.css">
 
 		  	<link rel="icon" type="image/png" href="../../img/icono.png" />
   	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -47,8 +52,9 @@ if($row[0]=='2'){
 	<div class="modal-sombra"></div>
 
 <!-- Josue aqui quiero los Datos del ususario dentro de las etiquetas  -->
-<a id="AdmNameUser" class="display-none">Kevin Melendez</a>
-<a id="AdmEmailUser" class="display-none">Kevin.Melendez@RyR.com</a>
+<a id="AdmEmailUser" class="display-none">
+  <?php session_start(); echo $_SESSION['correo']; ?> </a>
+<a id="AdmNameUser" class="display-none"><?php echo $_SESSION['nombres']; ?></a>
 <!-- fin datos -->
 
 <div class="wrapper">
@@ -111,10 +117,10 @@ if($row[0]=='2'){
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">RyR Abogados</li>
         <!-- Optionally, you can add icons to the links -->
-         <li><a href="#"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Inicio</a></li>
-        <li ><a href="#"><i class="fa fa-cog fa-fw"></i>&nbsp; Cuenta</a></li>
+         <li><a href="ADMIN/admMasterNot.php"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Inicio</a></li>
+        <li ><a href="Usuario.php"><i class="fa fa-cog fa-fw"></i>&nbsp; Cuenta</a></li>
         <li class="active"><a href="#"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Usuarios</a></li>
-       <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Salir</a></li>
+       <li><a href="cerrarSesion.php"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Salir</a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -188,10 +194,13 @@ if($row[0]=='2'){
 					</td>
 
 				</tr>
-			</table>	  
-		  <button id="btnCrear" type="submit" class="btn btn-success btn-block">Crear </button>
-      <button id="btnEditar" type="submit" class="btn btn-warning btn-block">Editar </button>
-      <button id="btnEliminar" type="submit" class="btn btn-danger btn-block">Eliminar </button>
+			</table>	 
+      <center>
+       <button id="btnCrear" type="" class="btn btn-success ">Crear </button>
+      <button id="btnEditar" type="" class="btn btn-primary ">Editar </button>
+      <button id="btnEliminar" type="" class="btn btn-danger ">Eliminar </button>
+      </center> 
+		 
 		</form>		
 		
   </div>
@@ -264,19 +273,19 @@ if($row[0]=='2'){
     $("#txtQhacer").val(1);
 
     $("#btnCrear").on("click", function(e) {
-       e.preventDefault();
+       // e.preventDefault();
       $("#txtQhacer").val(1);
       $('#frmData').submit();
     });
-    $("#Editar").on("click", function(e) {
-       e.preventDefault();
+    $("#btnEditar").on("click", function(e) {
+       // e.preventDefault();
       $("#txtQhacer").val(2);
-      $('#frmData').submit();
+       $('#frmData').submit();
     });
     $("#btnEliminar").on("click", function(e) {
-       e.preventDefault();
+       // e.preventDefault();
       $("#txtQhacer").val(3);
-      $('#frmData').submit();
+       $('#frmData').submit();
     });
     $("#codigo").change(function(){
       // alert("entro"+);

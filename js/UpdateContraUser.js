@@ -12,6 +12,8 @@
 			.done(function( data ){
 
 				alert("Contraseña Actualizada Corectamente");
+				$("#txtUserContraN1").val("");
+           $("#txtUserContraN2").val("");
 			})
 			.fail(function(){
 				// console.log("Fallo!");

@@ -26,17 +26,7 @@ session_start();
 		die("Connection failed: " . mysqli_connect_error());
 	}
 	
-	$checkEmail = "SELECT * FROM USUARIOS WHERE CORREO = '$_POST[correoTxt]' ";
-
-	$result = $conn-> query($checkEmail);
-
-	$count = mysqli_num_rows($result);
-
-	if ($count == 1) {
-	echo "<br />". "That email is already in our database." . "<br />";
-
-	echo "<a href='../index.php'>Please Retrive your Password here</a>.";
-	} else {
+	
 	$id = $_POST['codigo'];	
 	$usuario = $_POST['usuarioTxt'];
 	$pass = $_POST['passwordTxt'];
@@ -50,10 +40,17 @@ session_start();
 	$passHash = password_hash($pass, PASSWORD_DEFAULT);
 	
 	// Query to send Name, Email and Password hash to the database
-
 	switch ($txtQhacer) {
     case 1:
-      $query = "INSERT INTO USUARIOS (USUARIO,PASS, NOMBRES, APELLIDOS, CORREO, TIPO_USUARIO) VALUES ('$usuario','$passHash','$nombres','$apellidos', '$correo','$tipoDeUsuario')";
+    $checkEmail = "SELECT * FROM USUARIOS WHERE CORREO = '$_POST[correoTxt]' ";
+
+	$result = $conn-> query($checkEmail);
+
+	$count = mysqli_num_rows($result);
+	if ($count==1) {
+		echo "<script> alert('El correo ya existe !!'); </script>";
+	}else {
+		$query = "INSERT INTO USUARIOS (USUARIO,PASS, NOMBRES, APELLIDOS, CORREO, TIPO_USUARIO) VALUES ('$usuario','$passHash','$nombres','$apellidos', '$correo','$tipoDeUsuario')";
 
       if (mysqli_query($conn, $query)) {
 		echo "<script> alert('Usuario Creado Corectamente'); </script>";
@@ -61,6 +58,8 @@ session_start();
 		} else {
 			echo "Error: " . $query . "<br>" . mysqli_error($conn);
 		}
+	}
+      
         break;
     case 2:
         $query ="UPDATE USUARIOS SET USUARIO='$usuario', PASS='$passHash', NOMBRES='$nombres', APELLIDOS ='$apellidos', CORREO ='$correo', TIPO_USUARIO='$tipoDeUsuario' WHERE COD_USUARIO='$id'";
@@ -85,7 +84,7 @@ session_start();
         break;
 	}
 		
-	}	
+		
 	mysqli_close($conn);
 	?>
 </div>

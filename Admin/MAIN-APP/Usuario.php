@@ -32,10 +32,10 @@
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="modal-sombra"></div>
 
-<!-- Josue aqui quiero los Datos del ususario dentro de las etiquetas  -->
-<a id="AdmNameUser" class="display-none">Kevin Melendez</a>
-<a id="AdmCodigoUser" class="display-none">3</a>
-<a id="AdmEmailUser" class="display-none">Kevin.Melendez@RyR.com</a>
+<a id="AdmEmailUser" class="display-none">
+  <?php session_start(); echo $_SESSION['correo']; ?> </a>
+<a id="AdmNameUser" class="display-none"><?php echo $_SESSION['nombres']; ?></a>
+<a id="AdmCodigoUser" class="display-none"><?php echo $_SESSION['id']; ?></a>
 <!-- fin datos -->
 
 <div class="wrapper">
@@ -100,8 +100,8 @@
         <!-- Optionally, you can add icons to the links -->
          <li><a href="ADMIN/admMasterNot.php"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Inicio</a></li>
         <li class="active"><a href="#"><i class="fa fa-cog fa-fw"></i>&nbsp; Cuenta</a></li>
-        <li ><a href="#"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Usuarios</a></li>
-       <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Salir</a></li>
+        <li ><a href="mantenimiento-frontend.php"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Usuarios</a></li>
+       <li><a href="cerrarSesion.php"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Salir</a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -135,7 +135,7 @@
               </div>
               
               <div class="col-md-12">
-                <label >Contraseña Nueva </label>
+                <label >Contraseña Nueva</label>
                 <input name="txtUserContraN1" id="txtUserContraN1" type="password" class="form-control" placeholder="*****" >
               </div>
               <div class="col-md-12">
@@ -183,7 +183,7 @@
         if ($("#txtUserContraN1").val().length > 7 && $("#txtUserContraN2").val().length > 7  ){
           if($("#txtUserContraN1").val() == $("#txtUserContraN2").val()){
            $('#frmData').submit();        
-
+           
           }else{
             alert("Las Contaseñas no Coinciden !!!");
           };

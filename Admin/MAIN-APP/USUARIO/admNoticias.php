@@ -26,9 +26,10 @@
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="modal-sombra"></div>
 
-<!-- Josue aqui quiero los Datos del ususario dentro de las etiquetas  -->
-<a id="AdmNameUser" class="display-none">Kevin Melendez</a>
-<a id="AdmEmailUser" class="display-none">Kevin.Melendez@RyR.com</a>
+
+<a id="AdmEmailUser" class="display-none">
+	<?php session_start(); echo $_SESSION['correo']; ?>	</a>
+<a id="AdmNameUser" class="display-none"><?php echo $_SESSION['nombres']; ?></a>
 <!-- fin datos -->
 
 <div class="wrapper">
@@ -92,8 +93,8 @@
         <li class="header">RyR Abogados</li>
         <!-- Optionally, you can add icons to the links -->
          <li class="active"><a href="#"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Inicio</a></li>
-        <li><a href="#"><i class="fa fa-cog fa-fw"></i>&nbsp; Cuenta</a></li>
-       <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Salir</a></li>
+        <li><a href="../Usuario.php"><i class="fa fa-cog fa-fw"></i>&nbsp; Cuenta</a></li>
+       <li><a href="../cerrarSesion.php"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Salir</a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

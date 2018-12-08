@@ -39,24 +39,38 @@ if ($varsesion == null || $varsesion='') {
 	$usuario = $_POST['usuarioTxt']; 
 	$contraseña = $_POST['passwordTxt'];
 	
-	$result = mysqli_query($conn, "SELECT CORREO, PASS, NOMBRES FROM USUARIOS WHERE CORREO = '$usuario'");
+	$result = mysqli_query($conn, "SELECT COD_USUARIO, CORREO, PASS, NOMBRES, TIPO_USUARIO FROM USUARIOS WHERE CORREO = '$usuario' ");
 	
 	$row = mysqli_fetch_assoc($result);
-	
+
+
 	$hash = $row['PASS'];
 	
-
+	echo $row['TIPO_USUARIO'];
 	if (password_verify($_POST['passwordTxt'], $hash)) {	
 		
 		$_SESSION['loggedin'] = true;
-		$_SESSION['name'] = $row['NOMBRES'];
-		$_SESSION['start'] = time();
-		$_SESSION['expire'] = $_SESSION['start'] + (1 * 60) ;						
+		$_SESSION['nombres'] = $row['NOMBRES'];
+		$_SESSION['correo'] = $row['CORREO'];
+		$_SESSION['id'] = $row['COD_USUARIO'];
+
 		
-		echo "<div class='alert alert-success' role='alert'><strong>Welcome!</strong> $row[NOMBRES]			
-		<p><a href='editar-perfil.php'>Editar Perfil</a></p>	
-		<p><a href='mantenimiento-frontend.php'>Mantenimiento</a></p>
-		<p><a href='cerrarSesion.php'>Cerrar Sesion</a></p></div>";	
+
+		 if ($row['TIPO_USUARIO']==1) {
+			header("location:ADMIN/admMasterNot.php");
+		}elseif($row['TIPO_USUARIO']==2){
+			header("location:USUARIO/admNoticias.php");
+		}else{
+			echo "<script> alert('No se han definido los Permisos');  </script> ";
+		};
+		
+		// $_SESSION['start'] = time();
+		// $_SESSION['expire'] = $_SESSION['start'] + (1 * 60) ;						
+		
+		// echo "<div class='alert alert-success' role='alert'><strong>Welcome!</strong> $row[NOMBRES]			
+		// <p><a href='editar-perfil.php'>Editar Perfil</a></p>	
+		// <p><a href='mantenimiento-frontend.php'>Mantenimiento</a></p>
+		// <p><a href='cerrarSesion.php'>Cerrar Sesion</a></p></div>";	
 	
 	} else {
 		header("location:../index.php?e=1");		

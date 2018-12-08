@@ -12,7 +12,7 @@
 				console.log(id);
 				$.ajax({
 					type: 'POST',
-					url : 'php/servicios/get.noticias.php?id='+id+"&pag="+grupo,
+					url : '../../../php/servicios/get.noticias.php?id='+id+"&pag="+grupo,
 					dataType: 'json'
 				})
 				.done(function( data ){
@@ -32,8 +32,8 @@
 							 	content+= '<tr class="tblreg"><td colspan="7">Titulo: '+noticia.not_titulo+'</td></tr>';
 								content+= '<tr class="tblreg"> '; 	
 								content+= '<td>'+noticia.not_id+'</td>';
-								content+= '<td>'+noticia.not_fecha_crea+'</td>';
-								if(noticia.not_fecha_mod == null ){ aux = "-"}else{aux = noticia.not_fecha_mod}
+								content+= '<td>'+noticia.not_fecha_crea+'</br>'+noticia.not_usa_crea+'</td>';
+								if(noticia.not_fecha_mod == null ){ aux = "-"}else{aux = noticia.not_fecha_mod+'</br>'+noticia.not_usa_mod}
 								content+= '<td>'+aux+'</td>';
 								if(noticia.not_estado == "A"){ aux = "Activa"}else{aux = "Inactiva"}
 								content+= '<td>'+aux+'</td>';
@@ -101,9 +101,8 @@
 							 	content+= '<tr class="tblreg"><td colspan="7">Titulo: '+noticia.not_titulo+'</td></tr>';
 								content+= '<tr class="tblreg"> '; 	
 								content+= '<td>'+noticia.not_id+'</td>';
-								content+= '<td>'+noticia.not_fecha_crea+'</td>';
-								
-								if(noticia.not_fecha_mod == null ){ aux = "-"}else{aux = noticia.not_fecha_mod}
+								content+= '<td>'+noticia.not_fecha_crea+'</br>'+noticia.not_usa_crea+'</td>';
+								if(noticia.not_fecha_mod == null ){ aux = "-"}else{aux = noticia.not_fecha_mod+'</br>'+noticia.not_usa_mod}
 								content+= '<td>'+aux+'</td>';
 								if(noticia.not_estado == "A"){ aux = "Activa"}else{aux = "Inactiva"}
 								content+= '<td>'+aux+'</td>';

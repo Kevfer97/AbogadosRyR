@@ -25,6 +25,12 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="modal-sombra"></div>
+
+<!-- Josue aqui quiero los Datos del ususario dentro de las etiquetas  -->
+<a id="AdmNameUser" class="display-none">Kevin Melendez</a>
+<a id="AdmEmailUser" class="display-none">Kevin.Melendez@RyR.com</a>
+<!-- fin datos -->
+
 <div class="wrapper">
 
   <!-- Main Header -->
@@ -54,7 +60,7 @@
               <!-- The user image in the navbar-->
               <img src="../../../img/userAdm.png " class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Kevin Juanito</span>
+              <span  class="hidden-xs ponerUserName">User</span>
             </a>
            
           </li>
@@ -75,7 +81,7 @@
           <img src="../../../img/userAdm.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Kevin Juanito</p>
+          <p class="ponerUserName">User</p>
           <!-- Status -->
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
@@ -87,8 +93,7 @@
         <!-- Optionally, you can add icons to the links -->
          <li class="active"><a href="#"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Inicio</a></li>
         <li><a href="#"><i class="fa fa-cog fa-fw"></i>&nbsp; Cuenta</a></li>
-        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Usuarios</a></li>
-        <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Salir</a></li>
+       <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Salir</a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
@@ -105,7 +110,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
+        <li class="active">User</li>
       </ol>
     </section>
 
@@ -132,27 +137,22 @@
 					</div>
 				</div>
 				<div class="caja-body">
-					<table id="tblNot" class="table table-striped">
+					<table class="table table-striped">
 						<thead>
 							<tr>
 								<td class="w50 text-negrita">ID</td>
-<!-- 								<td class="w200 text-negrita">Titulo Noticia</td>
- -->								<td class="text-negrita">Fecha Crea</td>
-								<td class="text-negrita">Fecha Modifica</td>
+								<td class="text-negrita">Titulo Noticia</td>
 								<td class="text-negrita">Estado</td>
 								<td class="text-negrita">Relevante</td>
 								<td class="w50 text-negrita">Editar</td>
-								<td class="w50 text-negrita">Eliminar</td>
 								
 							</tr>
 						</thead>
 						<tbody id="tblregistros">
-							
-							
+
 						</tbody>
 					</table>
 				</div>
-				
 			</div>
 
     </section>
@@ -299,14 +299,14 @@
 
 <script src="../../../dist/js/adminlte.min.js"></script>
 <script src="../../../js/admInsUpdNot.js"></script>
-<script src="../../../js/mostrarNoticias_m.js"></script>
+<script src="../../../js/mostrarNoticias_a.js"></script>
 <script src="../../../js/main.js"></script>
 <script src="../../../js/datepickerES.js"></script>
 <script>
 	
-
+	$(".ponerUserName").text($("#AdmNameUser").text());
 	 $('.calendar').datepicker({dateFormat: 'yy/mm/dd'});
-		var user = $("#user").text();
+		var user = $("#AdmEmailUser").text();
 		//alert(user);
 		$("#user_log").val(user);
 		$('#btnGuardar').click(function(e){
@@ -376,7 +376,7 @@
 	var tl = new TimelineMax();
 
 	$("#btnAnimar").on("click",function () {
-		// console.log("entro");
+		console.log("entro");
 		tl.to(".b-empre",0.3,{
 				x : "100%"
 				
@@ -402,7 +402,7 @@
 			});
 	$("#chkMenu").on("click",function () {
 		if (estcheck) {
-			// console.log("entro al true");
+			console.log("entro al true");
 			tl.to($Lbar,1,{
 				x: 1400,
 				display: "none",
@@ -411,7 +411,7 @@
 			
 			estcheck = false;
 		}else{
-			// console.log("entro al false");
+			console.log("entro al false");
 			tl.to($Lbar,0.5,{
 				
 				display: "inline-block",
@@ -422,24 +422,14 @@
 
 	});
 	$("body").on("click",".btnEditarNoti", function(){
-		// console.log("entro");
-		// console.log($(this));
+		console.log("entro");
+		console.log($(this));
 		llenarModalEditarNoti($(this));
 	});
 
-	$("body").on("click",".btnEliminarNoti", function(){
-		var delid = $(this).data("id");
-		// alert(delid);
-		var r = confirm("!!! Desea Eliminar la Noticia !!!");
-			if (r == true) {
-   				 DelteNoticia(delid);
-			};
-		
-		
-	});
 	 function llenarModalEditarNoti(datos){
 	 	var a = datos.data("id");
-	 	$("#smlsub").text("( codigo: "+a+")");
+	  	$("#smlsub").text("( codigo: "+a+")");
 	 	$("#id_noticia").val(a);
 	 	$("#txtnot_contenido").val(datos.data("contenido"));
 	 	$("#txtnot_vista").val(datos.data("vista"));

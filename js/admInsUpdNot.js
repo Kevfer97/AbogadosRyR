@@ -8,7 +8,7 @@
 		console.log(dataserializada);
 			$.ajax({
 				type: 'POST',
-				url : 'php/servicios/post.noticia.php',
+				url : '../../../php/servicios/post.noticia.php',
 				dataType: 'json',
 				data:dataserializada
 			})
@@ -46,7 +46,7 @@
 
 					$.ajax({
 					type: 'POST',
-					url : 'php/servicios/post.DeleteNot.php?id='+id,
+					url : '../../../php/servicios/post.DeleteNot.php?id='+id,
 					dataType: 'json'
 				})
 				.done(function( data ){

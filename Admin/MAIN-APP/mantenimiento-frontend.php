@@ -4,12 +4,12 @@ $usuario=$_SESSION['usuario'];
 error_reporting(0);
 include 'conexion.php';
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-$tipoUsuario = mysqli_query($conn,"SELECT TIPO_USUARIO FROM USUARIOS WHERE CORREO = '$usuario'");
+$tipoUsuario = mysqli_query($conn,"SELECT TIPO_USUARIOS FROM USUARIOS WHERE CORREO = '$usuario'");
 $row = mysqli_fetch_array($tipoUsuario);
-echo "echo:".$row[0];
-if($row[0]!='1'){
-echo "<script> alert('usted no tiene permisos')</script>";
-	 die();
+echo "tipo: ".$row[0];
+if($row[0]=='2'){
+	echo "usted no tiene permisos";
+	die();
 }
  ?>
 <!doctype html>
@@ -42,18 +42,42 @@ echo "<script> alert('usted no tiene permisos')</script>";
 		<h3>MANTENIMIENTO</h3><hr />
 		
 		<form method="post" action="mantenimiento-backend.php" method="POST">
-			<div class="form-group">				
-				<input type="text" class="form-control" name="name" placeholder="Enter your name" required>			
-		  </div>
-		  
-		  <div class="form-group">				
-				<input type="email" class="form-control" name="email" aria-describedby="emailHelp" placeholder="Enter your email" required>
-			</div>
-		  
-		  <div class="form-group">				
-				<input type="password" class="form-control" name="password" placeholder="Create Password" required>
-			</div>
-		  
+			<table class="table table-bordered">
+				<tr>
+					<td><label for="codLb">Codigo</label></td>
+					<td><input type="text" class="form-control" name="name"  required></td>
+				</tr>
+				<tr>
+					<td><label for="usuarioLb">Usuario</label></td>
+					<td><input type="text" class="form-control" name="name"  required></td>
+				</tr>
+				<tr>
+					<td><label for="passLb">Contraseña</label></td>
+					<td><input type="password" class="form-control" name="password" required></td>
+				</tr>
+				<tr>
+					<td><label for="nombresLb">Nombres</label></td>
+					<td><input type="text" class="form-control" name="name"  required>	</td>
+				</tr>
+				<tr>
+					<td><label for="apellidosLb">Apellidos</label></td>
+					<td><input type="text" class="form-control" name="name"  required></td>
+				</tr>
+				<tr>
+					<td><label for="correoLb">Correo</label></td>
+					<td><input type="email" class="form-control" name="email" aria-describedby="emailHelp"  required></td>
+				</tr>
+				<tr>
+					<td><label for="tuLb">Tipo de Usuario</label></td>
+					<td>
+						<select name="tpUsuario" name="lista">
+							<option value="admin">1</option>
+							<option value="otro">2</option>
+						</select>
+					</td>
+
+				</tr>
+			</table>	  
 		  <button type="submit" class="btn btn-success btn-block">Create </button>
 		</form>		
 		</div>		

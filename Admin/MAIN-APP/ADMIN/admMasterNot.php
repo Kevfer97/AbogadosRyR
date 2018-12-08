@@ -87,7 +87,7 @@
         <!-- Optionally, you can add icons to the links -->
          <li class="active"><a href="#"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Inicio</a></li>
         <li><a href="#"><i class="fa fa-cog fa-fw"></i>&nbsp; Cuenta</a></li>
-        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Usuarios</a></li>
+        <li><a href="../mantenimiento-frontend.php"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Usuarios</a></li>
         <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Salir</a></li>
       </ul>
       <!-- /.sidebar-menu -->
@@ -105,7 +105,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-        <li class="active">Here</li>
+        <li class="active">Master</li>
       </ol>
     </section>
 

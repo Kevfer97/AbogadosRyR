@@ -146,7 +146,7 @@ if($row[0]=='2'){
 		</div>	
 	</div>
 	<div class="row">	
-   <div class="caja caja-azul caja-xl max_w"> 
+   <div class="caja caja-azul caja-xl max_ws"> 
         <div class="caja-body">   
 		
 		<h3>MANTENIMIENTO</h3><hr />
@@ -154,32 +154,32 @@ if($row[0]=='2'){
 		<form method="post" action="mantenimiento-backend.php" id="frmData" method="POST">
 			<table class="table table-bordered">
 				<tr>
-					<td><label for="codLb">Codigo</label></td>
+					<td><label for="codLb" class="text-negrita">Codigo</label></td>
 					<td><input type="text" class="form-control" name="codigo" id="codigo" ></td>
           <input name="txtQhacer" id="txtQhacer" type="text" class="form-control display-none" placeholder="*****" >
 				</tr>
 				<tr>
-					<td><label for="usuarioLb">Usuario</label></td>
+					<td><label for="usuarioLb" class="text-negrita">Usuario</label></td>
 					<td><input type="text" class="form-control" name="usuarioTxt" id="usuarioTxt" required></td>
 				</tr>
 				<tr>
-					<td><label for="passLb">Contraseña</label></td>
+					<td><label for="passLb" class="text-negrita">Contraseña</label></td>
 					<td><input type="password" class="form-control" name="passwordTxt" required></td>
 				</tr>
 				<tr>
-					<td><label for="nombresLb">Nombres</label></td>
+					<td><label for="nombresLb" class="text-negrita">Nombres</label></td>
 					<td><input type="text" class="form-control" name="nombresTxt" id="nombresTxt" required>	</td>
 				</tr>
 				<tr>
-					<td><label for="apellidosLb">Apellidos</label></td>
+					<td><label for="apellidosLb" class="text-negrita">Apellidos</label></td>
 					<td><input type="text" class="form-control" name="apellidosTxt" id="apellidosTxt" required></td>
 				</tr>
 				<tr>
-					<td><label for="correoLb">Correo</label></td>
+					<td><label for="correoLb" class="text-negrita">Correo</label></td>
 					<td><input type="email" class="form-control" name="correoTxt" aria-describedby="emailHelp" id="correoTxt" required></td>
 				</tr>
 				<tr>
-					<td><label for="tuLb">Tipo de Usuario</label></td>
+					<td><label for="tuLb" class="text-negrita">Tipo de Usuario</label></td>
 					<td>
 						<select name="tpUsuario" id="tpUsuario" class="form-control" >
 							<option value="1">Admin Master</option>
@@ -200,12 +200,12 @@ if($row[0]=='2'){
         <div class="caja-body">		
 		<table border="1" class="table table-bordered">
 		<tr>
-			<td>Codigo</td>
-			<td>Usuario</td>
-			<td>Nombres</td>
-			<td>Apellidos</td>
-			<td>Correo</td>
-			<td>Tipo Usuarios</td>
+			<td class="text-negrita">Codigo</td>
+			<td class="text-negrita">Usuario</td>
+			<td class="text-negrita">Nombres</td>
+			<td class="text-negrita">Apellidos</td>
+			<td class="text-negrita">Correo</td>
+			<td class="text-negrita">Tipo Usuarios</td>
 				
 		</tr>
 

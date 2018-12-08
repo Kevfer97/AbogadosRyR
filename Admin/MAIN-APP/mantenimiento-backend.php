@@ -49,7 +49,14 @@ session_start();
 	$passHash = password_hash($pass, PASSWORD_DEFAULT);
 	
 	// Query to send Name, Email and Password hash to the database
+	if ($txtQhacer == 1){
+
 	$query = "INSERT INTO USUARIOS (USUARIO,PASS, NOMBRES, APELLIDOS, CORREO, TIPO_USUARIO) VALUES ('$usuario','$passHash','$nombres','$apellidos', '$correo','$tipoDeUsuario')";
+	}else ($txtQhacer == 2){
+		$query = "INSERT INTO USUARIOS (USUARIO,PASS, NOMBRES, APELLIDOS, CORREO, TIPO_USUARIO) VALUES ('$usuario','$passHash','$nombres','$apellidos', '$correo','$tipoDeUsuario')";	
+	}else{
+			
+	};
 
 	if (mysqli_query($conn, $query)) {
 		echo "<script> alert('Usuario Creado Corectamente'); </script>";

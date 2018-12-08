@@ -114,7 +114,7 @@ if($row[0]=='2'){
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">RyR Abogados</li>
         <!-- Optionally, you can add icons to the links -->
-         <li><a href="ADMIN/admMasterNot.php"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Inicio</a></li>
+         <li><a href="#"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Inicio</a></li>
         <li ><a href="#"><i class="fa fa-cog fa-fw"></i>&nbsp; Cuenta</a></li>
         <li class="active"><a href="#"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Usuarios</a></li>
        <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Salir</a></li>
@@ -158,27 +158,27 @@ if($row[0]=='2'){
 			<table class="table table-bordered">
 				<tr>
 					<td><label for="codLb">Codigo</label></td>
-					<td><input type="text" class="form-control" name="name"  ></td>
+					<td><input type="text" class="form-control" name="codigo"  ></td>
 				</tr>
 				<tr>
 					<td><label for="usuarioLb">Usuario</label></td>
-					<td><input type="text" class="form-control" name="name"  ></td>
+					<td><input type="text" class="form-control" name="usuarioTxt"  required></td>
 				</tr>
 				<tr>
 					<td><label for="passLb">Contraseña</label></td>
-					<td><input type="password" class="form-control" name="password" required></td>
+					<td><input type="password" class="form-control" name="passwordTxt" required></td>
 				</tr>
 				<tr>
 					<td><label for="nombresLb">Nombres</label></td>
-					<td><input type="text" class="form-control" name="name"  required>	</td>
+					<td><input type="text" class="form-control" name="nombresTxt"  required>	</td>
 				</tr>
 				<tr>
 					<td><label for="apellidosLb">Apellidos</label></td>
-					<td><input type="text" class="form-control" name="name"  required></td>
+					<td><input type="text" class="form-control" name="apellidosTxt"  required></td>
 				</tr>
 				<tr>
 					<td><label for="correoLb">Correo</label></td>
-					<td><input type="email" class="form-control" name="email" aria-describedby="emailHelp"  required></td>
+					<td><input type="email" class="form-control" name="correoTxt" aria-describedby="emailHelp"  required></td>
 				</tr>
 				<tr>
 					<td><label for="tuLb">Tipo de Usuario</label></td>

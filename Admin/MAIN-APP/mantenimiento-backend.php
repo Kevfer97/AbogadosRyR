@@ -26,7 +26,7 @@ session_start();
 		die("Connection failed: " . mysqli_connect_error());
 	}
 	
-	$checkEmail = "SELECT * FROM USUARIOS WHERE CORREO = '$_POST[email]' ";
+	$checkEmail = "SELECT * FROM USUARIOS WHERE CORREO = '$_POST[correoTxt]' ";
 
 	$result = $conn-> query($checkEmail);
 
@@ -37,15 +37,19 @@ session_start();
 
 	echo "<a href='../index.php'>Please Retrive your Password here</a>.";
 	} else {	
-	$name = $_POST['name'];
-	$email = $_POST['email'];
-	$pass = $_POST['password'];
+	$usuario = $_POST['usuarioTxt'];
+	$pass = $_POST['passwordTxt'];
+	$nombres = $_POST['nombresTxt'];
+	$apellidos = $_POST['apellidosTxt'];
+	$correo = $_POST['correoTxt'];
+	$tipoDeUsuario = $_POST['tpUsuario'];
+
 	
 	// The password_hash() function convert the password in a hash before send it to the database
 	$passHash = password_hash($pass, PASSWORD_DEFAULT);
 	
 	// Query to send Name, Email and Password hash to the database
-	$query = "INSERT INTO USUARIOS (NOMBRES, CORREO, PASS) VALUES ('$name', '$email', '$passHash')";
+	$query = "INSERT INTO USUARIOS (USUARIO,PASS, NOMBRES, APELLIDOS, CORREO, TIPO_USUARIO) VALUES ('$usuario','$passHash','$nombres','$apellidos', '$correo','$tipoDeUsuario')";
 
 	if (mysqli_query($conn, $query)) {
 		echo "<div class='alert alert-success' role='alert'><h3>Your account has been created.</h3>

@@ -46,13 +46,14 @@ if ($varsesion == null || $varsesion='') {
 
 	$hash = $row['PASS'];
 	
-	echo $row['TIPO_USUARIO'];
+	
 	if (password_verify($_POST['passwordTxt'], $hash)) {	
 		
 		$_SESSION['loggedin'] = true;
 		$_SESSION['nombres'] = $row['NOMBRES'];
 		$_SESSION['correo'] = $row['CORREO'];
 		$_SESSION['id'] = $row['COD_USUARIO'];
+		$_SESSION['tipoUsuario'] = $row['TIPO_USUARIO'];
 
 		
 

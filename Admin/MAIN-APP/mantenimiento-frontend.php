@@ -1,6 +1,9 @@
 <?php 
 session_start();
 
+echo "usuario tipo:".$_SESSION['tipoUsuario'];
+
+
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
     {  
     } else {
@@ -8,16 +11,8 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
         exit;
     }
 
-// include 'conexion.php';
-// $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
-// $tipoUsuario = mysqli_query($conn,"SELECT TIPO_USUARIOS FROM USUARIOS WHERE CORREO = '$varsesion'");
-// $row = mysqli_fetch_array($tipoUsuario);
-// echo "tipo: ".$row[0];
-//  if($row[0]=='2'){
-// 	echo "usted no tiene permisos";
-// 	die();
-// }
  ?>
+
 <!doctype html>
 
 <html lang="en">

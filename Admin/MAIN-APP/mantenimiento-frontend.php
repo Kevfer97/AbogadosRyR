@@ -24,7 +24,7 @@ if($row[0]=='2'){
 
     <!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-		<link rel="stylesheet" href="css/custom.css">
+		<link rel="stylesheet" href="../css/custom.css">
 
 		  	<link rel="icon" type="image/png" href="../../img/icono.png" />
   	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -35,15 +35,12 @@ if($row[0]=='2'){
     <link rel="stylesheet" href="../../dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="../../dist/css/skins/skin-blue.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../../js/lib/jquery-3.3.1.min.js"></script>
 	<link rel="stylesheet" href="../../css/style.css">
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-		<!-- importacion de TimelineMax para las animaciones -->
-	<script src="../../js/lib/TweenMax.min.js"></script>
-	<!-- importacio de la libreria del editor de texto -->
-	<script src="../../ckeditor/ckeditor.js"></script>
+
+
 
   </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -148,9 +145,9 @@ if($row[0]=='2'){
 				
 		</div>	
 	</div>
-	
 	<div class="row">	
-		<div class="col-sm-12 col-md-6 col-lg-6">
+   <div class="caja caja-azul caja-xl max_w"> 
+        <div class="caja-body">   
 		
 		<h3>MANTENIMIENTO</h3><hr />
 		
@@ -158,12 +155,12 @@ if($row[0]=='2'){
 			<table class="table table-bordered">
 				<tr>
 					<td><label for="codLb">Codigo</label></td>
-					<td><input type="text" class="form-control" name="codigo"  ></td>
+					<td><input type="text" class="form-control" name="codigo" id="codigo" ></td>
           <input name="txtQhacer" id="txtQhacer" type="text" class="form-control display-none" placeholder="*****" >
 				</tr>
 				<tr>
 					<td><label for="usuarioLb">Usuario</label></td>
-					<td><input type="text" class="form-control" name="usuarioTxt"  required></td>
+					<td><input type="text" class="form-control" name="usuarioTxt" id="usuarioTxt" required></td>
 				</tr>
 				<tr>
 					<td><label for="passLb">Contraseña</label></td>
@@ -171,20 +168,20 @@ if($row[0]=='2'){
 				</tr>
 				<tr>
 					<td><label for="nombresLb">Nombres</label></td>
-					<td><input type="text" class="form-control" name="nombresTxt"  required>	</td>
+					<td><input type="text" class="form-control" name="nombresTxt" id="nombresTxt" required>	</td>
 				</tr>
 				<tr>
 					<td><label for="apellidosLb">Apellidos</label></td>
-					<td><input type="text" class="form-control" name="apellidosTxt"  required></td>
+					<td><input type="text" class="form-control" name="apellidosTxt" id="apellidosTxt" required></td>
 				</tr>
 				<tr>
 					<td><label for="correoLb">Correo</label></td>
-					<td><input type="email" class="form-control" name="correoTxt" aria-describedby="emailHelp"  required></td>
+					<td><input type="email" class="form-control" name="correoTxt" aria-describedby="emailHelp" id="correoTxt" required></td>
 				</tr>
 				<tr>
 					<td><label for="tuLb">Tipo de Usuario</label></td>
 					<td>
-						<select name="tpUsuario" class="form-control" name="lista">
+						<select name="tpUsuario" id="tpUsuario" class="form-control" >
 							<option value="1">Admin Master</option>
 							<option value="2">Admin Común</option>
 						</select>
@@ -196,8 +193,11 @@ if($row[0]=='2'){
       <button id="btnEditar" type="submit" class="btn btn-warning btn-block">Editar </button>
       <button id="btnEliminar" type="submit" class="btn btn-danger btn-block">Eliminar </button>
 		</form>		
-		</div>		
-		<div class="col-sm-12 col-md-6 col-lg-6">
+		
+  </div>
+</div>
+     <div class="caja caja-rojo caja-xl "> 
+        <div class="caja-body">		
 		<table border="1" class="table table-bordered">
 		<tr>
 			<td>Codigo</td>
@@ -210,7 +210,7 @@ if($row[0]=='2'){
 		</tr>
 
 		<?php 
-		$conexion=mysqli_connect('localhost','root','','abogados');
+		$conexion=mysqli_connect('localhost','root','','ryradmin');
 		$sql="SELECT * from usuarios";
 		$result=mysqli_query($conexion,$sql);
 
@@ -230,6 +230,8 @@ if($row[0]=='2'){
 	 ?>
 	</table>
 		</div>
+  
+</div>
 	</div>
 </div>
     </section>
@@ -251,11 +253,12 @@ if($row[0]=='2'){
 </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<!--     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script> -->
  
 	</body>
+  <script src="../../js/mostrarUsuario.js"></script>
 	<script>
 		$(".ponerUserName").text($("#AdmNameUser").text());
     $("#txtQhacer").val(1);
@@ -275,6 +278,9 @@ if($row[0]=='2'){
       $("#txtQhacer").val(3);
       $('#frmData').submit();
     });
-
+    $("#codigo").change(function(){
+      // alert("entro"+);
+    postUsuario($(this).val());
+    });
 	</script>
 </html>

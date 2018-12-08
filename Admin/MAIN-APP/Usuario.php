@@ -172,9 +172,10 @@
 
 </div>
 
- 
+   <script src="../../js/mostrarUsuario.js"></script>
   <script src="../../js/UpdateContraUser.js"></script>
   <script>
+    postUsuario(1);
     $(".ponerUserName").text($("#AdmNameUser").text());
     $("#txtUserId").val($("#AdmCodigoUser").text());
     $('#btnGuardar').click(function(e){

@@ -38,14 +38,14 @@
 								content+='<div class="caja-body">';
 								content+= noticia.not_vista_previa;
 								content+='</div>';
-								content+='<div class="caja-footer">';
 								content+='<a class="btn btn-primary btn-xs aling-right btnMostrarNoti" ';
 								content+='data-titulo="'+noticia.not_titulo+'" ';
 								content+='data-link="'+noticia.not_link+'" ';
 								content+= 'data-desc="'+noticia.not_descarga+'" ';
 								content+="data-contenido='"+noticia.not_contendo+"' ";
-								content+=' >Leer Mas</a>';
+								content+=' href="">Leer Mas</a>';
 								content+='</div>';
+								content+='<div class="caja-footer">';
 								content+='</div>';
 								$("#Contenedor-Noticias").append(content);
 								contNoti = contNoti + 1;

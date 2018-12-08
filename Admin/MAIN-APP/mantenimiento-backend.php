@@ -36,7 +36,8 @@ session_start();
 	echo "<br />". "That email is already in our database." . "<br />";
 
 	echo "<a href='../index.php'>Please Retrive your Password here</a>.";
-	} else {	
+	} else {
+	$id = $_POST['codigo'];	
 	$usuario = $_POST['usuarioTxt'];
 	$pass = $_POST['passwordTxt'];
 	$nombres = $_POST['nombresTxt'];
@@ -49,21 +50,41 @@ session_start();
 	$passHash = password_hash($pass, PASSWORD_DEFAULT);
 	
 	// Query to send Name, Email and Password hash to the database
-	if ($txtQhacer == 1){
 
-	$query = "INSERT INTO USUARIOS (USUARIO,PASS, NOMBRES, APELLIDOS, CORREO, TIPO_USUARIO) VALUES ('$usuario','$passHash','$nombres','$apellidos', '$correo','$tipoDeUsuario')";
-	}else ($txtQhacer == 2){
-		$query = "INSERT INTO USUARIOS (USUARIO,PASS, NOMBRES, APELLIDOS, CORREO, TIPO_USUARIO) VALUES ('$usuario','$passHash','$nombres','$apellidos', '$correo','$tipoDeUsuario')";	
-	}else{
-			
-	};
+	switch ($txtQhacer) {
+    case 1:
+      $query = "INSERT INTO USUARIOS (USUARIO,PASS, NOMBRES, APELLIDOS, CORREO, TIPO_USUARIO) VALUES ('$usuario','$passHash','$nombres','$apellidos', '$correo','$tipoDeUsuario')";
 
-	if (mysqli_query($conn, $query)) {
+      if (mysqli_query($conn, $query)) {
 		echo "<script> alert('Usuario Creado Corectamente'); </script>";
 		header("location:mantenimiento-frontend.php");		
 		} else {
 			echo "Error: " . $query . "<br>" . mysqli_error($conn);
-		}	
+		}
+        break;
+    case 2:
+        $query ="UPDATE USUARIOS SET USUARIO='$usuario', PASS='$passHash', NOMBRES='$nombres', APELLIDOS ='$apellidos', CORREO ='$correo', TIPO_USUARIO='$tipoDeUsuario' WHERE COD_USUARIO='$id'";
+
+        if (mysqli_query($conn, $query)) {
+		echo "<script> alert('Usuario Actualizado Corectamente'); </script>";
+		header("location:mantenimiento-frontend.php");		
+		} else {
+			echo "Error: " . $query . "<br>" . mysqli_error($conn);
+		}
+        break;
+        break;
+    case 3:
+        $query= "DELETE FROM USUARIOS WHERE COD_USUARIO='$id'";
+
+        if (mysqli_query($conn, $query)) {
+		echo "<script> alert('Usuario Eliminado Corectamente'); </script>";
+		header("location:mantenimiento-frontend.php");		
+		} else {
+			echo "Error: " . $query . "<br>" . mysqli_error($conn);
+		}
+        break;
+	}
+		
 	}	
 	mysqli_close($conn);
 	?>

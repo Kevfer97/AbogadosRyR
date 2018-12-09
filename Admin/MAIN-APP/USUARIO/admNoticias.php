@@ -1,3 +1,21 @@
+<?php 
+session_start();
+
+// echo "usuario tipo:".$_SESSION['tipoUsuario'];
+
+
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+    {  
+      if ($_SESSION['tipoUsuario'] != 2){
+          header("location:../cerrarSesion.php");
+      };
+    } else {
+        header("location:../../../index.html");
+        exit;
+    };
+
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -347,9 +365,9 @@
 
 		$(".btnFiltrar").on("click",function(){
 			$("#txtFecha_Inicio").val("");
-			$("#txtFecha_Inicio").attr("placeholder", "yyy/mm/dd");
+			$("#txtFecha_Inicio").attr("placeholder", "yyyy/mm/dd");
 			$("#txtFecha_Fin").val("");
-			$("#txtFecha_Fin").attr("placeholder", "yyy/mm/dd");
+			$("#txtFecha_Fin").attr("placeholder", "yyyy/mm/dd");
 			MostrarModal("#modal2");
 		});
 

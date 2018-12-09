@@ -79,7 +79,7 @@
 						
 				$.ajax({
 					type: 'POST',
-					url : 'php/servicios/get.noticiasBusqueda.php',
+					url : '../../../php/servicios/get.noticiasBusqueda.php',
 					dataType: 'json',
 					data: dataserializada
 				})

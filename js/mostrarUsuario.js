@@ -20,8 +20,12 @@
 						console.log("algo raro paso");
 						return;
 					}
-									console.log(data);
-						
+									// console.log(data);
+								$("#usuarioTxt").val("");
+							 	$("#nombresTxt").val( "");
+							 	$("#apellidosTxt").val( "");
+							 	$("#correoTxt").val("");
+							 	$("#tpUsuario").val( "");
 									 // alert(data.Usuarios[0].CORREO);
 							 	$("#usuarioTxt").val( data.Usuarios[0].USUARIO);
 							 	$("#nombresTxt").val( data.Usuarios[0].NOMBRES);

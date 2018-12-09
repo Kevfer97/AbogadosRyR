@@ -1,15 +1,18 @@
 <?php 
 session_start();
 
-echo "usuario tipo:".$_SESSION['tipoUsuario'];
+// echo "usuario tipo:".$_SESSION['tipoUsuario'];
 
 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
     {  
+      if ($_SESSION['tipoUsuario'] != 1){
+           header("location: cerrarSesion.php");
+      };
     } else {
         header("location:../../index.html");
         exit;
-    }
+    };
 
  ?>
 
@@ -17,7 +20,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
 
 <html lang="en">
   <head>
-    <title>Mantenimiento</title>
+    <title>Admin| RyR</title>
     
 	<!-- Required meta tags -->
     <meta charset="utf-8">
@@ -223,7 +226,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
 
 		<tr>
 			<td><?php echo $mostrar['COD_USUARIO'] ?></td>
-			<td><?php echo $mostrar['USUARIO'] ?></td>
+			<td class="UsBus pointer" data-id="<?php echo $mostrar['COD_USUARIO'] ?>"><?php echo $mostrar['USUARIO'] ?></td>
 			<td><?php echo $mostrar['NOMBRES'] ?></td>
 			<td><?php echo $mostrar['APELLIDOS'] ?></td>
 			<td><?php echo $mostrar['CORREO'] ?></td>
@@ -262,10 +265,17 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script> -->
  
 	</body>
+  <script src="../../dist/js/adminlte.min.js"></script>
   <script src="../../js/mostrarUsuario.js"></script>
 	<script>
 		$(".ponerUserName").text($("#AdmNameUser").text());
     $("#txtQhacer").val(1);
+
+    $("body").on("click",".UsBus",function(){
+        postUsuario($(this).data("id"));
+        $("#codigo").val($(this).data("id"));
+        $('body,html').animate({scrollTop : 0}, 500);
+    });
 
     $("#btnCrear").on("click", function(e) {
        // e.preventDefault();

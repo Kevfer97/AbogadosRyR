@@ -1,4 +1,20 @@
+<?php 
+session_start();
 
+// echo "usuario tipo:".$_SESSION['tipoUsuario'];
+
+
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+    {  
+      if ($_SESSION['tipoUsuario'] != 1){
+          header("location:../cerrarSesion.php");
+      };
+    } else {
+        header("location:../../../index.html");
+        exit;
+    };
+
+ ?>
 
 <!DOCTYPE html>
 <html>
@@ -30,7 +46,7 @@
 
 
 <a id="AdmEmailUser" class="display-none">
-	<?php session_start(); echo $_SESSION['correo']; ?>	</a>
+	<?php  echo $_SESSION['correo']; ?>	</a>
 <a id="AdmNameUser" class="display-none"><?php echo $_SESSION['nombres']; ?></a>
 <!-- fin datos -->
 <div class="wrapper">
@@ -315,7 +331,7 @@
 	$(".ponerUserName").text($("#AdmNameUser").text());
 
 	 $('.calendar').datepicker({dateFormat: 'yy/mm/dd'});
-		var user = $("#user").text();
+		var user = $("#AdmEmailUser").text();
 		//alert(user);
 		$("#user_log").val(user);
 		$('#btnGuardar').click(function(e){
@@ -355,9 +371,9 @@
 
 		$(".btnFiltrar").on("click",function(){
 			$("#txtFecha_Inicio").val("");
-			$("#txtFecha_Inicio").attr("placeholder", "yyy/mm/dd");
+			$("#txtFecha_Inicio").attr("placeholder", "yyyy/mm/dd");
 			$("#txtFecha_Fin").val("");
-			$("#txtFecha_Fin").attr("placeholder", "yyy/mm/dd");
+			$("#txtFecha_Fin").attr("placeholder", "yyyy/mm/dd");
 			MostrarModal("#modal2");
 		});
 

@@ -1,4 +1,18 @@
+<?php 
+session_start();
 
+// echo "usuario tipo:".$_SESSION['tipoUsuario'];
+
+
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
+    {  
+      
+    } else {
+        header("location:../../../index.html");
+        exit;
+    };
+
+ ?>
 <!doctype html>
 
 <html lang="en">
@@ -100,7 +114,7 @@
         <!-- Optionally, you can add icons to the links -->
          <li><a href="ADMIN/admMasterNot.php"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Inicio</a></li>
         <li class="active"><a href="#"><i class="fa fa-cog fa-fw"></i>&nbsp; Cuenta</a></li>
-        <li ><a href="mantenimiento-frontend.php"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Usuarios</a></li>
+        <li id="UserOcult" ><a href="mantenimiento-frontend.php"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Usuarios</a></li>
        <li><a href="cerrarSesion.php"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Salir</a></li>
       </ul>
       <!-- /.sidebar-menu -->
@@ -171,16 +185,21 @@
 
 
 </div>
-
+  
+  <script src="../../dist/js/adminlte.min.js"></script>
    <script src="../../js/mostrarUsuario.js"></script>
   <script src="../../js/UpdateContraUser.js"></script>
   <script>
-    postUsuario(1);
+    
+    if ($("#AdmCodigoUser").text() == 2){
+        $("#UserOcult").hide();
+    };
+
     $(".ponerUserName").text($("#AdmNameUser").text());
     $("#txtUserId").val($("#AdmCodigoUser").text());
     $('#btnGuardar').click(function(e){
         e.preventDefault();
-        if ($("#txtUserContraN1").val().length > 7 && $("#txtUserContraN2").val().length > 7  ){
+        if ($("#txtUserContraN1").val().length > 5 && $("#txtUserContraN2").val().length > 5  ){
           if($("#txtUserContraN1").val() == $("#txtUserContraN2").val()){
            $('#frmData').submit();        
            
@@ -188,7 +207,7 @@
             alert("Las Contaseñas no Coinciden !!!");
           };
         }else{
-            alert("Las Contaseña debe terner un Minimo de 8 Caracteres !!!");
+            alert("Las Contaseña debe terner un Minimo de 6 Caracteres !!!");
           };
       
       });

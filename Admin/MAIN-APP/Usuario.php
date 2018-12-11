@@ -112,7 +112,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">RyR Abogados</li>
         <!-- Optionally, you can add icons to the links -->
-         <li><a href="ADMIN/admMasterNot.php"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Inicio</a></li>
+         <li><a id="homeSegun" href="ADMIN/admMasterNot.php"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Inicio</a></li>
         <li class="active"><a href="#"><i class="fa fa-cog fa-fw"></i>&nbsp; Cuenta</a></li>
         <li id="UserOcult" ><a href="mantenimiento-frontend.php"><i class="fa fa-user" aria-hidden="true"></i>&nbsp; Usuarios</a></li>
        <li><a href="cerrarSesion.php"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp; Salir</a></li>
@@ -128,7 +128,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
     <section class="content-header">
       <h1>
         Administrar
-        <small>Usuarios</small>
+        <small>Contraseña</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
@@ -193,6 +193,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
     
     if ($("#AdmCodigoUser").text() == 2){
         $("#UserOcult").hide();
+        $("#homeSegun").attr("href","USUARIO/admNoticias.php")
     };
 
     $(".ponerUserName").text($("#AdmNameUser").text());

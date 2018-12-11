@@ -251,7 +251,7 @@ pointer-events: none;
 
 .Item-pointer:hover{
 	cursor: pointer;
-	transform:scale(1.25);
+	transform:scale(1.10);
 }
 /*Fin Estilos de caja*/
 

@@ -35,12 +35,6 @@ function crear_menu() {
                 html+='<ul class="dropdown-menu">';
                 html+='<li class="dropdown-item dropdown-submenu">';
                 html+='<a class="dropdown-item" href="servicios.html">Jurídicos</a>';
-                html+='<!--    <ul class="dropdown-menu">';
-                html+='<li class="dropdown-item"> <a href="#">Familia</a> </li>';
-                html+='<li class="dropdown-item"> <a href="#">Trabajo</a></li>';
-                html+='<li class="dropdown-item"> <a href="#">Civil y mercantil</a> </li>';
-                html+='<li class="dropdown-item"> <a href="#">Derechos Humanos</a> </li>';
-                html+='</ul> -->';
                 html+='</li>';
                 html+='<li class="dropdown-item dropdown-submenu">';
                 html+='<a class="dropdown-item" href="servicios.html">Contables</a>';
@@ -58,7 +52,7 @@ function crear_menu() {
                 html+='<li class="nav-item dropdown">';
                 html+='<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Que nos diferencia </a>';
                 html+='<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">';
-                html+='<a class="dropdown-item" href="#">Valores</a>';
+                html+='<a class="dropdown-item" href="somos.html">Valores</a>';
                 html+='</div>';
                 html+='<!--===========================ITEM4 FINAL========================--->';
                 html+='<!--===========================ITEM5 INICIO========================--->';
@@ -66,7 +60,7 @@ function crear_menu() {
                 html+='<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Actualidad</a>';
                 html+='<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">';
                 html+='<a class="dropdown-item" href="Noticias.html">Noticias / Relacion FB</a>';
-                html+='<a class="dropdown-item" href="#">Casos de éxito</a>';
+                html+='<a class="dropdown-item" href="HistoriasExito.html">Casos de éxito</a>';
                 html+='</div>';
                 html+='<!--===========================ITEM5 FINAL========================--->';
                 html+='<!--===========================ITEM6 INICIO========================--->';

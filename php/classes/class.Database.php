@@ -15,7 +15,7 @@ class Database{
 	private $_host = "localhost";
 	private $_user = "root";
 	private $_pass = "";
-	private $_db   = "ryradmin";
+	private $_db   = "adminryr_db";
 
 
 	// Almacenar una unica instancia

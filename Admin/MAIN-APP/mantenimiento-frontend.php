@@ -1,7 +1,6 @@
 <?php 
 session_start();
 
-// echo "usuario tipo:".$_SESSION['tipoUsuario'];
 
 
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
@@ -168,7 +167,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
 				</tr>
 				<tr>
 					<td><label for="passLb" class="text-negrita">Contraseña</label></td>
-					<td><input type="password" class="form-control" name="passwordTxt" required></td>
+					<td><input type="password" class="form-control" name="passwordTxt"  id="passwordTxt" required></td>
 				</tr>
 				<tr>
 					<td><label for="nombresLb" class="text-negrita">Nombres</label></td>
@@ -217,7 +216,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
 		</tr>
 
 		<?php 
-		$conexion=mysqli_connect('localhost','root','','ryradmin');
+		$conexion=mysqli_connect('localhost','root','','adminryr_db');
 		$sql="SELECT * from usuarios";
 		$result=mysqli_query($conexion,$sql);
 
@@ -280,17 +279,26 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
     $("#btnCrear").on("click", function(e) {
        // e.preventDefault();
       $("#txtQhacer").val(1);
-      $('#frmData').submit();
+            if($("passwordTxt").val().length != 0 ){
+
+       $('#frmData').submit();
+      };
     });
     $("#btnEditar").on("click", function(e) {
        // e.preventDefault();
       $("#txtQhacer").val(2);
+             if($("passwordTxt").val().length != 0 ){
+
        $('#frmData').submit();
+      };
     });
     $("#btnEliminar").on("click", function(e) {
        // e.preventDefault();
       $("#txtQhacer").val(3);
+      if($("passwordTxt").val().length != 0 ){
+
        $('#frmData').submit();
+      };
     });
     $("#codigo").change(function(){
       // alert("entro"+);

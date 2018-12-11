@@ -1,8 +1,7 @@
 
-
 			function llenarSlider() {
 							
-
+				
 			 var Hslider = " ";
 			 Hslider +='<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="5000">';
 			 Hslider +='<ol class="carousel-indicators">';

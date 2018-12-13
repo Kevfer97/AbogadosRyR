@@ -10,3 +10,11 @@ var dato_infor_slider_direc = 'Colonia y Pasaje Layco Casa # 1130 entre 29 Calle
 var dato_infor_slider_Tel = 'Tel 2225-9119 y whatsapp 7191-5293; 7747-7871';
 
 var dato_ArrSlider = ["img/slider1.jpg","img/slider2.jpg","img/slider3.jpg","img/slider4.jpg"];
+
+var dato_info = 'Colonia 4 y Pasaje Layco Casa # 1130 entre</br> 29 Calle Poniente y 21 Avenida Norte.';
+
+var social_facebook ='https://www.facebook.com/';
+
+var social_twitter ='https://twitter.com/';
+
+var correo_Contact ='ryr.abogadosycontadores@gmail.com';

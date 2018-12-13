@@ -3,7 +3,7 @@
 
 <?php
 
-$destino="israel15tejada@gmail.com";
+$destino="ryr.abogadosycontadores@gmail.com";
 $nombre=$_POST["nombre"];
 $correo=$_POST["correo"];
 $telefono=$_POST["telefono"];
@@ -26,6 +26,8 @@ mail($destino, $asunto, $contenido);
 	<link rel="stylesheet" href="css/contacto.css">
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/estilo.css">
+	<link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
 	  <script src="datos.txt"></script>
 
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -121,7 +123,8 @@ mail($destino, $asunto, $contenido);
 	<script src="js/jquery-3.2.1.slim.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scroll.js" type="text/javascript" charset="utf-8" async defer></script>
-
+	<script src="js/footer.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="js/menu2.js" type="text/javascript" charset="utf-8" async defer></script>
 
     <!--Google Maps-->
 

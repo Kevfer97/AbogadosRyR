@@ -216,7 +216,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
 		</tr>
 
 		<?php 
-		$conexion=mysqli_connect('localhost','root','','adminryr_db');
+		$conexion=mysqli_connect('localhost','root','','ryradmin');
 		$sql="SELECT * from usuarios";
 		$result=mysqli_query($conexion,$sql);
 

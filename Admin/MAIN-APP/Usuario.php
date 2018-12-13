@@ -19,7 +19,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
   <head>
     <title>Admin| RyR</title>
     
-	<!-- Required meta tags -->
+  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -44,12 +44,13 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
 
   </head>
 <body class="hold-transition skin-blue sidebar-mini">
-	<div class="modal-sombra"></div>
+  <div class="modal-sombra"></div>
 
 <a id="AdmEmailUser" class="display-none">
   <?php session_start(); echo $_SESSION['correo']; ?> </a>
 <a id="AdmNameUser" class="display-none"><?php echo $_SESSION['nombres']; ?></a>
 <a id="AdmCodigoUser" class="display-none"><?php echo $_SESSION['id']; ?></a>
+<a id="AdmTipoUser" class="display-none"><?php echo $_SESSION['tipoUsuario']; ?></a>
 <!-- fin datos -->
 
 <div class="wrapper">
@@ -191,7 +192,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
   <script src="../../js/UpdateContraUser.js"></script>
   <script>
     
-    if ($("#AdmCodigoUser").text() == 2){
+    if ($("#AdmTipoUser").text() == 2){
         $("#UserOcult").hide();
         $("#homeSegun").attr("href","USUARIO/admNoticias.php")
     };
@@ -214,5 +215,5 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true)
       });
 
   </script>
-	</body>
+  </body>
 </html>

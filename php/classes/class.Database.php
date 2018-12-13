@@ -13,9 +13,9 @@ class Database{
 
 	private $_connection;
 	private $_host = "localhost";
-	private $_user = "root";
-	private $_pass = "";
-	private $_db   = "ryradmin";
+	private $_user = "rivasrodriguez_rivasrodriguez";
+	private $_pass = "{?0N&;L)=DeN";
+	private $_db   = "rivasrodriguez_ryradmin";
 
 
 	// Almacenar una unica instancia
